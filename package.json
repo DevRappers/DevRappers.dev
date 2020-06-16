@@ -62,7 +62,7 @@
     "recursive-readdir": "^2.2.2",
     "signale": "^1.3.0"
   },
-  "homepage": "https://github.com/DevRappers/Gatsby_Blog#readme",
+  "homepage": "https://github.com/DevRappers/DevRappers.dev#readme",
   "keywords": [
     "gatsby"
   ],
@@ -70,7 +70,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevRappers/Gatsby_Blog.git"
+    "url": "git+https://github.com/DevRappers/DevRappers.dev.git"
   },
   "scripts": {
     "post": "gatsby-post-gen",
