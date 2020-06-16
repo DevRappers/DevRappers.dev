@@ -2,29 +2,37 @@ module.exports = {
   title: `DevRappers.dev`,
   description: `Blog posted about ...`,
   author: `DevRappers`,
-  introduction: `I explain with words and code. I explain with words and code. I explain with words and code.`,
-  siteUrl: `https://devrppers.netlify.app/`, // Your blog site url
+  introduction: `Front-end Developer, Mobile Developer (React, ReactNative)`,
+  siteUrl: `https://devrppers.netlify.app/`,
   social: {
-    twitter: ``, // Your Twitter account
-    github: `https://github.com/DevRappers/DevRappers.dev`, // Your GitHub account
-    medium: ``, // Your Medium account
-    facebook: ``, // Your Facebook account
-    linkedin: `www.linkedin.com/in/devrappers`, // Your LinkedIn account
+    twitter: ``,
+    github: `DevRappers`,
+    medium: ``,
+    facebook: ``,
+    linkedin: `devrappers`,
   },
-  icon: `content/assets/felog.png`, // Add your favicon
-  keywords: [`blog`],
+  icon: `content/assets/felog.png`,
+  keywords: [
+    `blog`,
+    `javascript`,
+    `typescript`,
+    `web`,
+    `react`,
+    `frontend`,
+    `development`,
+  ],
   comment: {
-    disqusShortName: '', // Your disqus-short-name. check disqus.com.
-    utterances: 'DevRappers/DevRappers.dev', // Your repository for archive comment
+    disqusShortName: '',
+    utterances: 'DevRappers/DevRappers.dev',
   },
   configs: {
-    countOfInitialPost: 10, // Config your initial count of post
+    countOfInitialPost: 10,
   },
   sponsor: {
     buyMeACoffeeId: 'devrappers',
   },
   share: {
-    facebookAppId: '', // Add facebookAppId for using facebook share feature v3.2
+    facebookAppId: '2833345986788939',
   },
-  ga: '', // Add your google analytics tranking ID
+  ga: 'UA-167524196-1',
 }
