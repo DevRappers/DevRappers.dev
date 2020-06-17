@@ -27,6 +27,10 @@ $blockquote-text-color: #999;
 $inline-dimmed-color: #ece5f1;
 $inline-text-color: #4b2043;
 
+// tag
+$light-tag-border-color: #ecf0f2;
+$light-tag-highlight-border-color: #909da1;
+
 // category
 $light-category-border-color: #ecf0f2;
 $light-category-highlight-border-color: #909da1;
@@ -47,6 +51,9 @@ $dark-middle-font-color: #d8d7d7;
 
 $dark-text-shadow: 0 0 0.1px rgba(255, 255, 255, 0.3);
 $dark-hover-text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+
+$dark-tag-border-color: rgb(56, 54, 54);
+$dark-tag-highlight-border-color: #666;
 
 $dark-category-item-color: #282c35;
 $dark-category-background-color: #24272c;
