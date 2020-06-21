@@ -1,7 +1,7 @@
 ---
 title: Gatsby를 선택하게 된 이유
 date: 2020-06-20 19:21:00
-category: Gatsby
+category: gatsby
 thumbnail: "./images/gatsby.png"
 draft: false
 ---

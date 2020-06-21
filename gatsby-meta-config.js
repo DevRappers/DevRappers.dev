@@ -1,6 +1,6 @@
 module.exports = {
-  title: `⭐️ DevRappers.dev`,
-  description: `Blog posted about ...`,
+  title: `DEVRAPPERS.dev`,
+  description: `Front-end 개발자 DevRappers의 기술 블로그`,
   author: `DevRappers`,
   introduction: `Front-end Developer, Mobile Developer (React, ReactNative)`,
   siteUrl: `https://devrappers.dev/`,
@@ -11,7 +11,7 @@ module.exports = {
     facebook: ``,
     linkedin: `devrappers`,
   },
-  icon: `content/assets/felog.png`,
+  icon: `content/assets/blog-favicon.png`,
   keywords: [
     `blog`,
     `javascript`,

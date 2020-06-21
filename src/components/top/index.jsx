@@ -10,7 +10,7 @@ export const Top = ({ title, location, rootPath }) => {
     <div className="top">
       {!isRoot && (
         <Link to={`/`} className="link">
-          {title}
+          🌟 {title}
         </Link>
       )}
       <GitHubIcon />
