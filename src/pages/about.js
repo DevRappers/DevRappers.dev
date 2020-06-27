@@ -8,7 +8,6 @@ import * as _ from '../constants'
 import '../styles/resume.scss'
 
 export default ({ data }) => {
-  console.log(data.site.siteMetadata.resume)
   const resumeData = data.site.siteMetadata.resume
 
   const resumes = data.allMarkdownRemark.edges
