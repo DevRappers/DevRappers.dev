@@ -2,7 +2,7 @@
 title: 주니어 개발자가 업무가 없을 때 하는일
 date: 2020-06-27 19:37:28
 category: devtalk
-thumbnail: './images/junior_developer.jpeg'
+thumbnail: './images/junior-developer.png'
 draft: false
 ---
 
