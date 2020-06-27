@@ -12,6 +12,11 @@ module.exports = {
     linkedin: `devrappers`,
   },
   icon: `content/assets/blog-favicon.png`,
+  resume: {
+    title: 'About DevRappers',
+    description: 'docs: Update RESUME.md for introducing myself',
+    thumbnail: 'https://devrappers.dev/about_thumebnail.jpeg',
+  },
   keywords: [
     `blog`,
     `javascript`,
