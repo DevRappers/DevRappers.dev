@@ -55,14 +55,14 @@ const boo = function(){};
 식이란 실행결과가 값이 되는 것을 식이라 하며 그외의 모든 것은 문이라고 한다.
 
 문에는 반복문인 while, for 조건문인 if 같은 것이 해당된다.
-이것들의 특징으로 식에는 ;(세미콜론)이 붙고 문에는 ;(세미콜론)이 붙지 않는다.
+이것들의 특징으로 식에는 ;(세미콜론)이 붙고 문에는 ;(세미콜론)을 붙이지 않는다.
 
 <strong>3.즉시 호출 함수</strong>
 ```javascript
 (function(){})();
 ```
 익명 함수를 값으로 만들어 사용할 때에는 ()를 사용해 즉시 호출해주면 된다. 이는
-예전에 많이 사용된 방법으로 단 한번만 함수를 실행할 때 사용된다고 한다.
+예전에 많이 사용된 방법으로 단 한번만 함수를 실행할 때 주로 사용된다고 한다.
 
 <strong>4.함수의 매개변수</strong>
 ```javascript
@@ -79,7 +79,7 @@ const y = foo(function() {});
 함수는 꼭 값을 반환한다는 규칙을 가지고 있기 때문에 함수를 반환해도 된다. 
 
 위와 같이 함수를 파라미터로 넘겨주는 것을 콜백함수라고 하며 호출을 위임하는 역할을 한다. (해당 함수에서 끝맺음을 지을 수 없고 추가적인 작업이 필요할 경우 사용)
-그리고 위와 같이 함수를 인자로 받고 함수를 반환하는 foo같은 함수를 1급 함수(High Order Function)이라고 한다.
+그리고 위와 같이 함수를 인자로 받고 함수를 반환하는 foo같은 함수를 1급 함수(High Order Function)라고 한다.
 
 <strong>5.재귀 호출 함수</strong>
 ```javascript
@@ -106,7 +106,7 @@ const x = (a) => a*2;
 const y = a => a*2;
 ```
 
-<strong>new 연산자 함수와 인스턴스 객체</strong>
+<strong>7.new 연산자 함수와 인스턴스 객체</strong>
 ```javascript
 function foo() {
   this.name = "DevRappers"
@@ -139,7 +139,7 @@ console.log(new bar()); // bar {name: "DevRappers", constructor: Object}
 ```
 
 결과적으로 같아 보이지만 `class`를 사용하게 되면 훨씬 명시적인 코드가 되게 된다.
-그리고 가장 크게 함수로만든 foo같은 경우는 `new`연산자 없이 호출이 가능하지만,
+그리고 함수로만든 foo같은 경우는 `new`연산자 없이 호출이 가능하지만,
 `class`로 만들게 되면 `new` 호출을 강제해 사용가능하다.
 
 <strong>9.this</strong>
