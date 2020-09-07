@@ -10,6 +10,7 @@ module.exports = {
     medium: ``,
     facebook: ``,
     linkedin: `devrappers`,
+    mailAddress: "devrappers@gmail.com"
   },
   icon: `content/assets/blog-favicon.png`,
   resume: {
