@@ -104,12 +104,11 @@ store.dispatch({ type: "FETCH_USER" });
 
 미들웨어란 데이터가 흘러가는 과정 중간에 거쳐가는 것을 미들웨어라고 한다.
 ```js
-const indexMiddleware = store => dispatch => action => {
+const oneMiddleware = store => dispatch => action => {
   dispatch(action);
 }
 
-/* 커링2 - indexMiddleware와 같음 */
-function testMiddleware (store) {
+function twoMiddleware (store) {
   return function (dispatch) {
     return function (action) {
       dispatch(action);
@@ -117,16 +116,76 @@ function testMiddleware (store) {
   }
 }
 
-function testMiddleware2 (store, dispatch, action) {
+function threeMiddleware (store, dispatch, action) {
   dispatch(action);
 }
 
-indexMiddleware(store)(store.disapatch)({ type: 'inc' });
-testMiddleware(store)(store.disapatch)({ type: 'inc' });
-testMiddleware2(store, store.disapatch, { type: 'inc' });
+oneMiddleware(store)(store.disapatch)({ type: 'INC' });
+twoMiddleware(store)(store.disapatch)({ type: 'INC' });
+threeMiddleware(store, store.disapatch, { type: 'INC' });
 ```
+첫번째와 두번째 함수는 3개의 인자를 3개의 함수로 쪼갰고 마지막 함수는 한번에 인자를 받도록 하였다.
+
+위의 세개의 미들웨어는 모두 동기적인 액션은 문제없이 처리되는 것을 알 수 있을 것이다.
+
+그렇다면 커링기법을 왜 사용해야 하는 걸까?
+
+reducer에서 로그를 찍으려고 한다면 이런식으로 로깅을 할 수 있을 것이다.
+
+```js
+console.log('action -> { type: "INC" }');
+store.dispatch({ type: "INC" });
+
+console.log('action -> { type: "INC" }');
+store.dispatch({ type: "INC" });
+```
+
+로깅은 할 수 있지만 모든 액션마다 하나하나 로깅을 해야한다는 큰 단점이 있다. 이 단점을 해결하기 위해서는 함수를 액션으로 감싸는 방법을 활용할 수 있을 것이다.
+
+```js
+function dispatchAndLog(store, action) {
+    console.log("dispatching", action);
+    store.dispatch(action);
+    console.log("next state", store.getState());
+}
+```
+
+강의에서는 몽키패칭에 대한 말씀을 하셨지만 이 예제는 다른 곳에 많고 내용도 길어 생략하도록 하겠다.
+
 Redux 자체를 수정하기엔 위험부담이 크고 추후 유지 보수에도 문제가 있으니 중간에 미들웨어를 통해서 
 dispatch 전에 어떤 행동을 취하게 하도록 한다.
+
+### Custom Redux Middleware 만들어보기 
+```js
+const logger = (store) => (next) => (action) => {
+    console.log("logger:", action.type);
+    next(action);
+};
+
+const monitor = (store) => (next) => (action) => {
+    setTimeout(() => {
+        console.log("monitor:", action.type);
+        next(action);
+    }, 2000);
+};
+```
+이런식으로 `logger` 미들웨어는 동기적으로 실행되고 `monitor` 미들웨어는 비동기적으로 실행되게 만들어보았다. 이렇게 만든 미들웨어을 적용하기 위해 
+applyMiddleware 함수를 만들어보았다.
+```js
+export function applyMiddleware(store, middlewares = []) {
+    middlewares = middlewares.slice();
+    middlewares.reverse();
+
+    let dispatch = store.dispatch;
+    middlewares.forEach(
+        (middleware) => (dispatch = middleware(store)(dispatch))
+    );
+
+    return Object.assign({}, store, { dispatch });
+}
+```
+위의 middlewares를 reverse하는 이유는 미들웨어가 최종적으로 실행하는 dispatch는 store의 dispatch 함수여야 하기 때문에 뒤집는다.
+배열을 뒤집어 뒤집기 전의 가장 뒤인 오른쪽에서 부터 왼쪽으로 dispatch를 전달시키는 것이다. 결론적으로 최종 실행되는 dispatch는 기존 store의 dispatch 함수가 되는 것이다.
 
 ## 마무리 🚀 
 수업이후에 바로 작성을 했어야 했는데 늦게 작성을 하는 바람에 중간중간 생략된 내용이 많다. 
